@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+<style>
+  body {
+    background-image: url("./images/1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;    
+  }
+</style>
+<body>
+    <br />
+    <h3 align="center">
+        <font face="Lato" size="6">ASCII-Art-Web</font>
+    </h3>
+  <form action="/ascii-art" method="POST">
+    <p align="center">
+      <label for="textfile">Select a banner</label>
+      <select name="banner" id="banner">
+        <option value="standard">standard</option>
+        <option value="shadow">shadow</option>
+        <option value="thinkertoy">thinkertoy</option>
+      </select>
+    </p>
+
+    <p align="center">
+      <label for="requests"></label>
+      <br>
+      <textarea name="request" rows="12" cols="65" placeholder="Type something here"></textarea>
+    </p>
+    <p align="center">  
+      <input type="submit" value="Submit" class="form-submit-button" style="border-radius:5px;height:40px;width:100px">
+    </p>
+
+    </form>
+
+  </form>
+</body>
+
+</html>

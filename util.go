@@ -16,14 +16,16 @@ func parseBanner(s string) map[rune][][]rune {
 			// 10 - "LF Line Feed" moves the cursor down to the next line without returning to the beginning of the line.
 			// 13 -"CR Carriege Return" moves the cursor to the beginning of the line without advancing to the next line.
 			rowData = append(rowData, char)
+			//fmt.Println(rowData)
 		}
-		// Adding the rowData to the two dimen. array called data
+		// Adding the rowData to the two-dimen. array called data
 
 		if char == 10 || char == 13 {
 			// We only add rowData to data if rowData is not empty
 			if len(rowData) > 1 {
 				data = append(data, rowData)
 				rowData = []rune{}
+
 			}
 			if len(data) == 8 {
 				myMap[rune(ascii)] = data

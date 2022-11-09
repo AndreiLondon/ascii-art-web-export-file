@@ -27,6 +27,7 @@ func main() {
 	http.HandleFunc("/", formHandler)
 	// Routing
 	http.HandleFunc("/ascii-art", resultHandler)
+	http.HandleFunc("/download", downloadHandler)
 	// Then we need to tell HTTP to listen and serve on port 8080
 	fmt.Printf("Starting application on port %s\n", portNumber)
 	// Web server that listens for requests. (Without it, the main func never executes)
@@ -80,6 +81,11 @@ func resultHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		myMap := parseBanner(b)
 		result := printMessageIntoString(text, myMap)
+		err = writeToFile(filePath, []byte(result))
+		if err != nil {
+			showError(w, "500 INTERNAL SERVER ERROR", http.StatusInternalServerError)
+			return
+		}
 		//fmt.Println([]rune(result))
 		//resultHtml := strings.ReplaceAll(result, "\n", "<br>")
 		//fmt.Println([]rune(resultHtml))
@@ -101,6 +107,13 @@ func resultHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	showError(w, "400 BAD REQUEST", http.StatusBadRequest)
+}
+
+func downloadHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Disposition", "attachment; filename="+filePath)
+	w.Header().Set("Content-Type", r.Header.Get("Content-Type"))
+	w.Header().Set("Content-Length", r.Header.Get("Content-Length"))
+	http.ServeFile(w, r, filePath)
 }
 
 // Render the error.html template

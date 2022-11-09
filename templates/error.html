@@ -5,10 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <h1>{{.}}</h1>
+    <style>
+        body {
+          background-image: url("./images/3.jpg");
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 100% 100%;    
+        }
+      </style>
+
+
+    <h1 align="center">{{.}}</h1>
   
-    <form>
-        <input type="button" value="Go back" onclick="history.back()">
+    <form align="center">
+        <input type="button" value="Go back"onclick="history.back()" style="border-radius:5px;height:30px;width:100px">
        </form>
 </head>
 <body>

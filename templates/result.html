@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ascii Art Result</title>
 </head>
-<body>
 
-   <pre> {{.}} </pre>
-   
+<style>
+    body {
+        background-image: url("./images/2.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+</style>
+
+<body>
     <br>
-   <button type="button">Download</button>
-    
+    <pre align="center">{{.}}</pre>
+
+    <p align="center">
+        <button type="button" style="border-radius:5px;height:40px;width:100px" onclick="location.href = '/download';">Download</button>
+    </p>
+
+
+
 </body>
+
 </html>
